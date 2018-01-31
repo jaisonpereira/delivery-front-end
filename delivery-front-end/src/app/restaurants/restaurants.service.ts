@@ -25,4 +25,9 @@ export class RestaurantService {
             .catch(ErrorHandler.handleError)
     }
 
+    getReviewsById(id: string): Observable<any> {
+        return this.http.get(`${APP_API}/restaurants/${id}/reviews`).map(response => response.json())
+            .catch(ErrorHandler.handleError)
+    }
+
 }
