@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { RestaurantService } from 'app/restaurants/restaurants.service';
+import { Observable } from 'rxjs/Observable';
+import { MenuItem } from 'app/restaurant-detail/menu-item/menu-item.model';
 
 @Component({
   selector: 'mt-menu',
@@ -6,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  menu: Observable<MenuItem[]>
+
+  constructor(private restaurantsService: RestaurantService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.menu = this.restaurantsService.getMenuOfRestaurant(this.route.parent.snapshot.params['id']);
+  }
+
+
+  addMenuEvent(item :MenuItem){
+    alert(item.name)
   }
 
 }
