@@ -3,7 +3,7 @@ import { MenuItem } from "../menu-item/menu-item.model";
 
 export class ShoppingCartService {
 
-    items: CartItem[] = []
+    public items: CartItem[] = []
 
     clear() {
         this.items = [];
@@ -12,15 +12,29 @@ export class ShoppingCartService {
     addItem(item: MenuItem) {
         let foundItem = this.items.find((mItem) => mItem.menuItem.id === item.id)
         if (foundItem) {
-            foundItem.quantity = foundItem.quantity + 1
+            this.increaseQty(foundItem);
         } else {
-            this.items.push(new CartItem(item))
+            this.items.push(new CartItem(item));
         }
     }
 
-    removeItem(item: CartItem) {
-        this.items.splice(this.items.indexOf(item), 1)
+    increaseQty(item: CartItem) {
+        item.quantity = item.quantity + 1
     }
+
+    decreaseQty(item: CartItem) {
+        item.quantity = item.quantity - 1
+        if (item.quantity === 0) {
+            this.removeItem(item);
+        }
+    }
+
+
+    removeItem(item: CartItem) {
+        this.items.splice(this.items.indexOf(item), 1);
+    }
+
+
     //primeiro eu faco um map pegando somente o valor,depois usa o reduce o previous e o valor atual somando os dois
     //value é uma funcao do objeto para pegar o preco
     total(): number {

@@ -1,4 +1,4 @@
-//please use in file>preferences>keyboard shortcuts
+//please use in file>preferences>keyboard shortcuts Jaison Pereira
 [
     {
         "key": "ctrl+d",
@@ -10,11 +10,11 @@
         "command": "workbench.action.gotoSymbol"
     },
     {
-        "key": "ctrl+[",
+        "key": "alt+left",
         "command": "workbench.action.navigateBack"
     },
     {
-        "key": "ctrl+]",
+        "key": "alt+right",
         "command": "workbench.action.navigateForward"
     },
     {
@@ -45,18 +45,6 @@
     {
         "key": "ctrl+f",
         "command": "actions.find"
-    },
-    {
-        "key": "alt+left",
-        "command": "subwordNavigation.cursorSubwordLeft"
-    },
-    {
-        "key": "alt+right",
-        "command": "subwordNavigation.cursorSubwordRight"
-    },
-    {
-        "key": "alt+left",
-        "command": "subwordNavigation.cursorSubwordLeft"
     },
     {
         "key": "shift+alt+left",
@@ -102,8 +90,13 @@
         "key": "ctrl+shift+[",
         "command": "workbench.files.action.openPreviousWorkingFile"
     
-    ,{
+    },
+    {
         "key": "ctrl+shift+f3",
         "command": "workbench.action.closeOtherEditors"
-    }}
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "workbench.action.files.saveAll"
+    }
 ]
