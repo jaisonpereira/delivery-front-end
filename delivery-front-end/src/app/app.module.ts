@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 
 //DEFINIDO ROTAS
 import { ROUTES } from './app.routes';
@@ -38,7 +38,8 @@ import { SharedModule } from './shared/shared.module'
     BrowserModule,
     HttpModule,
     SharedModule.forRoot(),//evita conflitos de providers com modulo raiz
-    RouterModule.forRoot(ROUTES)
+    //usando tecnica de preloading para carregar em outra thread
+    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules })
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]
