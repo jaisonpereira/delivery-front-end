@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 //DEFINIDO ROTAS
 import { ROUTES } from './app.routes';
@@ -20,7 +20,8 @@ import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component'
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { SharedModule } from './shared/shared.module';
 import { NotFoundComponent } from './not-found/not-found.component'
-import {LocationStrategy,HashLocationStrategy} from '@angular/common'
+//estrategia de hash na url
+//import {LocationStrategy,HashLocationStrategy} from '@angular/common'
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import {LocationStrategy,HashLocationStrategy} from '@angular/common'
     //usando tecnica de preloading para carregar em outra thread
     RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules })
   ],
-  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy },{ provide: LOCALE_ID, useValue: 'pt-BR' }],
+  //{provide:LocationStrategy,useClass:HashLocationStrategy }, estrategia de hash na url
+  providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
